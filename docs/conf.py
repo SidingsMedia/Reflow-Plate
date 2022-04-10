@@ -20,8 +20,8 @@ import subprocess
 
 # -- Project information -----------------------------------------------------
 
-project = 'Reflow Board'
-copyright = '20222, Sidings Media'
+project = 'Reflow Plate'
+copyright = '2022, Sidings Media'
 author = 'Sidings Media'
 
 # Versions
@@ -33,32 +33,40 @@ release = ''
 warning = ''
 
 revision = subprocess.check_output(
-	['git', 'rev-parse', '--short', 'HEAD']).strip().decode('ascii')
+    ['git', 'rev-parse', '--short', 'HEAD']).strip().decode('ascii')
 out = subprocess.check_output(["git", "branch"]).decode("utf8")
 current = next(line for line in out.split("\n") if line.startswith("*"))
-branch = current.strip("*").strip()[25:-1]
+branch = current.strip("*").strip()
+# Fix where branch output is (HEAD DETACHED AT ORIGIN/
+if branch[0] == '(':
+    branch = branch[25:-1]
 
 if branch == 'develop':
-	version = f'DEV-{revision}'
-	release = f'DEV-{revision}'
-	warning = 'This documentation is a development version and as such it is unstable and is prone to change at any time. Stable documentation can be found at https://docs.sidingsmedia.com/projects/reflowplate/en/main/.'
-	revisionNotice = f"Revision {revision} on branch {branch}"
+    version = f'DEV-{revision}'
+    release = f'DEV-{revision}'
+    warning = 'This documentation is a development version and as such it is unstable and is prone to change at any time. Stable documentation can be found at https://docs.sidingsmedia.com/projects/reflowplate/en/main/.'
+    revisionNotice = f"Revision {revision} on branch {branch}"
 else:
-	# Try to get the current tag
-	try:
-		tag = subprocess.check_output(
-			['git', 'describe', '--tags', '--abbrev=0', '--exact-match']).strip().decode('ascii')
-	except subprocess.CalledProcessError:
-		tag = None
-	if tag is None:
-		revisionNotice = f"Revision {revision} on branch {branch}"
-	else:
-		# The short X.Y version
-		version = tag
-		# The full version, including alpha/beta/rc tags
-		release = tag
-		warning = ''
-		revisionNotice = f"Revision {revision} on tag {tag}"
+    # Try to get the current tag
+    try:
+        tag = subprocess.check_output(
+            ['git', 'describe', '--tags', '--abbrev=0', '--exact-match']).strip().decode('ascii')
+    except subprocess.CalledProcessError:
+        tag = None
+    if tag is None:
+        revisionNotice = f"Revision {revision} on branch {branch}"
+        if version == '':
+            version = f"{branch.upper()}-{revision}"
+        if release == '':
+            release = f"{branch.upper()}-{revision}"
+
+    else:
+        # The short X.Y version
+        version = tag
+        # The full version, including alpha/beta/rc tags
+        release = tag
+        warning = ''
+        revisionNotice = f"Revision {revision} on tag {tag}"
 
 # -- General configuration ---------------------------------------------------
 
@@ -69,7 +77,7 @@ else:
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinxcontrib.bibtex']
+extensions = ['sphinxcontrib.bibtex', 'sphinx_rtd_dark_mode']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -132,13 +140,6 @@ html_theme_path = ["_themes", ]
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ['_static']
 
-# html_js_files = [
-#     'stable-warning.js',
-# ]
-
-# html_logo = '_static/track-bw-square-192.png'
-# html_favicon = '_static/favicon.ico'
-
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #
@@ -153,7 +154,7 @@ html_theme_path = ["_themes", ]
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Reflow Plate'
+htmlhelp_basename = 'reflowplate'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -206,7 +207,7 @@ latex_elements = {
         \\addto\\captionsenglish{{\\renewcommand{{\\contentsname}}{{Table of contents}}}}
         % \\addto\\captionsenglish{{\\renewcommand{{\\chaptername}}{{Chapter}}}}
 		%%%% Custom copyright
-		\\fancyfoot[LO,RE]{{Copyright \\textcopyright\\ 2021, Sidings Media. Licensed under CC-BY-SA-4.0}}
+		\\fancyfoot[LO,RE]{{Copyright \\textcopyright\\ 2022, Sidings Media. Licensed under CC-BY-SA-4.0}}
 		\\fancypagestyle{{plain}}{{
 		\\fancyhf{{}}
 		\\fancyfoot[LE,RO]{{\\thepage}}
@@ -218,7 +219,7 @@ latex_elements = {
         Media. Licensed under CC-BY-SA-4.0\\\\{revisionNotice}}}}}
 		}}
     ''',
-   	'maketitle': f'''
+    'maketitle': f'''
 	\\newcommand\\sphinxbackoftitlepage{{{{This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.\\\\\\\\{warning}}}}}\\sphinxmaketitle
 	'''
     # Latex figure (float) alignment
@@ -232,7 +233,7 @@ latex_show_urls = 'footnote'
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ReflowPlate.tex', 'Reflow Plate',
+    (master_doc, 'reflowplate.tex', 'Reflow Plate',
      'Sidings Media', 'manual'),
 ]
 
@@ -254,7 +255,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'reflowplate', 'Reflow Plate',
-     author, 'SidingsMediaDocs', 'Documentation relating to the Reflow Plate',
+     author, 'SidingsMediaDocs', 'Documentation relating to Reflow Plate',
      'Miscellaneous'),
 ]
 
