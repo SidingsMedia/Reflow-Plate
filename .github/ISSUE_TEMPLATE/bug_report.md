@@ -1,5 +1,5 @@
 <!-- 
-SPDX-FileCopyrightText: Copyright (c) 2021 Sidings Media
+SPDX-FileCopyrightText: Copyright (c) 2021-2022 Sidings Media
 
 SPDX-License-Identifier: CC0-1.0 
 -->
@@ -17,7 +17,7 @@ A clear and concise description of what the bug is.
 **Type**
 Hardware? Software?
 **Product**
-Desktop Client? Android Client? Relay Board?
+RP2040? ESP32?
 **To Reproduce**
 Steps to reproduce the behavior:
 1. Go to '...'
