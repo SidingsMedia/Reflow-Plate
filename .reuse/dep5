@@ -6,3 +6,7 @@ Source: https://github.com/SidingsMedia/SMRC-template.git
 Files: .github/workflows/*
 Copyright: Copyright (c) 2021 Sidings Media
 License: CC0-1.0
+
+Files: boards/*
+Copyright: Copyright (c) 2022 Sidings Media
+License: CC-BY-SA-4.0
