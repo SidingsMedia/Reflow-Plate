@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: SMRC-template
+Upstream-Contact: Sidings Media <contact@sidingsmedia.com>
+Source: https://github.com/SidingsMedia/SMRC-template.git
+
+Files: .github/workflows/*
+Copyright: Copyright (c) 2021 Sidings Media
+License: CC0-1.0
