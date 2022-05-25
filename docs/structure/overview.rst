@@ -18,7 +18,7 @@ be added. The standard interface between the boards is shown below.
 .. code-block::
 
                 +----------------------+----------------------+
-        5V ----+                      |                      +---- SDA
+        5V  ----+                      |                      +---- SDA
                 | LOGIC POWER          |                  I2C |
         3V3 ----+                      |                      +---- SCL
                 +----------------------+----------------------+
@@ -38,21 +38,21 @@ be added. The standard interface between the boards is shown below.
                 |                      |                 GPIO |
     SENSE C ----+                      |                      +---- GPIO3
                 +----------------------+                      |
-        NC ----+                      |                      +---- GPIO4
+        NC  ----+                      |                      +---- GPIO4
                 |                      |                      |
-        NC ----+                      |                      +---- GPIO5
+        NC  ----+                      |                      +---- GPIO5
                 |                      +----------------------+
-        NC ----+                      |                      +---- NC
+        NC  ----+                      |                      +---- NC
                 |                      |                      |
-        NC ----+                      |                      +---- NC
+        NC  ----+                      |                      +---- NC
                 |                      +----------------------+
-        NC ----+                      |                      +---- SCLK
+        NC  ----+                      |                      +---- SCLK
                 |                      |                      |
-        NC ----+                      |                      +---- MOSI
+        NC  ----+                      |                      +---- MOSI
                 |                      |                      |
-        NC ----+                      |                      +---- MISO
+        NC  ----+                      |                      +---- MISO
                 |                      |                      |
-        NC ----+                      |                      +---- SS1
+        NC  ----+                      |                      +---- SS1
                 +----------------------+                  SPI |
         12V ----+                      |                      +---- SS2
                 |                      |                      |
