@@ -25,5 +25,5 @@ Modular Structure
     :hidden:
     :maxdepth: 3
 
-    structure/mcu
+    structure/overview
  
