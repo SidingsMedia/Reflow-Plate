@@ -215,7 +215,7 @@ latex_elements = {
 		\\renewcommand{{\\footrulewidth}}{{0.4pt}}
 		% add copyright stuff for example at left of footer on odd pages,
 		% which is the case for chapter opening page by default
-        \\fancyfoot[LO,RE]{{Copyright \\textcopyright\\ 2021, Sidings
+        \\fancyfoot[LO,RE]{{Copyright \\textcopyright\\ 2022, Sidings
         Media. Licensed under CC-BY-SA-4.0\\\\{revisionNotice}}}}}
 		}}
     ''',
