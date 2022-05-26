@@ -11,6 +11,9 @@ There are 5 main boards in the project:
 * Heating board
 * Backplane
   
+Pinout
+======
+
 Each of these boards interconnect in order to create a fully functional
 reflow plate. The boards are stackable allowing for multiple boards to
 be added. The standard interface between the boards is shown below.
@@ -62,4 +65,18 @@ be added. The standard interface between the boards is shown below.
                           |                      |            LOGIC GND |
                   GND ----+                      |                      +---- GND
                           +----------------------+----------------------+
-        
+
+Mechanical Specifications
+=========================
+
+In order to maintain mechanical compatibility between all boards, a
+specification has been created to stipulate the positioning of the
+inter-board connections. The headers have been set at the spacing of a
+standard 2.54mm breadboard allowing for easy development of custom
+boards without the cost of PCB manufacture.
+
+.. figure:: _images/structure/mechanical.png
+    :scale: 75%
+    :alt: Mechanical drawing of board
+
+    The mechanical drawing of the stackable board.

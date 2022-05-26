@@ -14,11 +14,6 @@ Modular Structure
 .. only:: html
 
     * :doc:`structure/overview`
-    * :doc:`structure/mcu`
-    * :doc:`structure/power`
-    * :doc:`structure/io`
-    * :doc:`structure/heating`
-    * :doc:`structure/backplane`
 
 .. toctree::
     :caption: Modular Structure
