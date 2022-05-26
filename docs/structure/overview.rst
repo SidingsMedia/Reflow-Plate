@@ -75,7 +75,7 @@ inter-board connections. The headers have been set at the spacing of a
 standard 2.54mm breadboard allowing for easy development of custom
 boards without the cost of PCB manufacture.
 
-.. figure:: _images/structure/mechanical.png
+.. figure:: /_images/structure/mechanical.png
     :scale: 75%
     :alt: Mechanical drawing of board
 
