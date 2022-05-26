@@ -41,8 +41,8 @@ be added. The standard interface between the boards is shown below.
                           |                      |                 GPIO |
               SENSE C ----+                      |                      +---- GPIO3
                           +----------------------+                      |
-                   NC ----+                      |                      +---- GPIO4
-                          |                      |                      |
+                RESET ----+ SYSTEM RESET         |                      +---- GPIO4
+                          +----------------------+                      |
                    NC ----+                      |                      +---- GPIO5
                           |                      +----------------------+
                    NC ----+                      |                      +---- SCLK
